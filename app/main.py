@@ -9,7 +9,7 @@ from.routers import post,user,auth,vote
 
 pwd_context = CryptContext(schemes=["bcrypt"],deprecated="auto")
 
-# models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 # origins = ["https://www.google.com","https://www.youtube.com"]

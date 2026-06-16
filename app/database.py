@@ -4,9 +4,9 @@ from sqlalchemy.orm import sessionmaker
 import psycopg
 from psycopg.rows import dict_row
 import time
-# import os
+import os
 
-# # SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 # SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg://postgres:amangarg@localhost/fastapi'
 
 import os
