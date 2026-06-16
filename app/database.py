@@ -4,10 +4,21 @@ from sqlalchemy.orm import sessionmaker
 import psycopg
 from psycopg.rows import dict_row
 import time
+# import os
+
+# # SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+# SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg://postgres:amangarg@localhost/fastapi'
+
 import os
 
-# SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
-SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg://postgres:amangarg@localhost/fastapi'
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+
+if SQLALCHEMY_DATABASE_URL.startswith("postgresql://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace(
+        "postgresql://",
+        "postgresql+psycopg://",
+        1
+    )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
  
