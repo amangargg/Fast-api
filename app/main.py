@@ -12,6 +12,9 @@ pwd_context = CryptContext(schemes=["bcrypt"],deprecated="auto")
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "API is running successfully!"}
 # origins = ["https://www.google.com","https://www.youtube.com"]
 origins = ["*"]
 app.add_middleware(
